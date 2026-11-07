@@ -33,7 +33,7 @@ body.edit .hero .t,body.edit .std .big,body.edit .std .s,body.edit .hk .tx,body.
 body.edit .ph.empty::before{content:"+ Bấm để chọn ảnh"}
 .hero{position:relative;padding:0;text-align:left}
 .hero .ph{height:300px}
-.hero .t{position:absolute;top:14px;right:14px;width:56%;text-align:center;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6);font-size:13px}
+.hero .t{position:absolute;z-index:3;pointer-events:none;top:14px;right:14px;width:56%;text-align:center;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6);font-size:13px}
 .hero .t b{font-family:'Playfair Display',serif;font-size:22px;display:block;line-height:1.15}
 .hero .t b i{font-weight:400}
 .std{position:relative;padding:0}
@@ -184,7 +184,6 @@ function cal(){const d=new Date(D.date+"T00:00:00");if(isNaN(d))return"";const y
 function render(){
 $("#app").innerHTML=`
 <section class="hero"><div class="ph-wrap">${ph("hero")}</div><div class="t"><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:24px;display:block">${esc(D.short)}</span><p style="margin-top:8px">${esc(D.quote)}</p></div></section>
-<section class="std">${ph("std")}<div class="s"><span>${esc(D.dateLabel)}</span><span>${esc(D.date.slice(0,4))}</span></div></section>
 <section class="rv"><h2>Sự Kiện Cưới</h2><p class="sub">${esc(D.intro)}</p></section>
 ${evt(D.b,"bEvt")}${evt(D.g,"gEvt")}
 <section class="cd rv"><div class="script">Đếm ngược ngày cưới</div><div class="cdg"><div><span id="cd0">00</span>Ngày</div><div><span id="cd1">00</span>Giờ</div><div><span id="cd2">00</span>Phút</div><div><span id="cd3">00</span>Giây</div></div><p>${esc(D.countText)}</p>
